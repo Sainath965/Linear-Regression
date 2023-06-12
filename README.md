@@ -32,3 +32,18 @@ line = regressor.coef_*X+regressor.intercept_
 plt.scatter(X, y)
 plt.plot(X, line);
 plt.show()
+
+print(X_test) # Testing data - In Hours
+y_pred = regressor.predict(X_test) # Predicting the scores
+
+df = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})  
+df 
+
+hours = 9.25
+own_pred = regressor.predict(hours)
+print("No of Hours = {}".format(hours))
+print("Predicted Score = {}".format(own_pred[0]))
+
+from sklearn import metrics  
+print('Mean Absolute Error:', 
+      metrics.mean_absolute_error(y_test, y_pred)) 
